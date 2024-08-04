@@ -25,6 +25,7 @@ export async function POST(request: Request, response: Response) {
       success_url: `http;//localhost:3000/products/${id}/checkout-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `http://localhost:3000/products/${id}`,
     });
+    return NextResponse.json({checkout_url: session.url});
   } catch (err: any) {
     return NextResponse.json(err.message);
   }

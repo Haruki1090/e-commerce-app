@@ -12,3 +12,16 @@ export const getAllProducts = async () => {
     });
     return allProducts;
 };
+
+export const getProductById = async (id: string) => {
+    const product = await client.getList<ProductType>({
+      endpoint: "set-product",
+      queries: { filters: `id[equals]${id}` },
+    });
+  
+    if (product.contents.length === 0) {
+      throw new Error('Product not found');
+    }
+  
+    return product.contents[0];
+  };

@@ -1,6 +1,6 @@
 "use client";
 
-import Product from "./components/Book";
+import Product from "./components/Product";
 import { getAllProducts } from "./lib/microcms/client";
 import { ProductType } from "./types/types";
 

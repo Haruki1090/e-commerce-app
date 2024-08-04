@@ -1,12 +1,18 @@
+"use client";
+
 import { getProductById } from "@/app/lib/microcms/client";
 import { ProductDetailProps } from "@/app/types/types";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
+
+// eslint-disable-next-line @next/next/no-async-client-component
 const ProductDetail = async ({ params }: ProductDetailProps) => {
   const product = await getProductById(params.id);
 
   const thumbnail = product.thumbnail[0];
 
+  const router = useRouter();
   const startCheckout = async () => {
     try {
       const response = await fetch(
@@ -23,6 +29,13 @@ const ProductDetail = async ({ params }: ProductDetailProps) => {
           }),
         }
       );
+
+      const responseData = await response.json();
+
+      if (responseData) {
+        router.push(responseData.checkout_url);
+      }
+
     } catch (err) {
       console.error(err);
     }

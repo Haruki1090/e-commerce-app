@@ -2,14 +2,13 @@ import { PrismaClient } from "@prisma/client";
 
 let prisma: PrismaClient;
 
-const grobalForPrisma = global as unknown as {
+const globalForPrisma = global as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-if (!grobalForPrisma.prisma) {
-  prisma = new PrismaClient();
+if (!globalForPrisma.prisma) {
+  globalForPrisma.prisma = new PrismaClient();
 }
-
-grobalForPrisma.prisma = prisma;
+prisma = globalForPrisma.prisma;
 
 export default prisma;

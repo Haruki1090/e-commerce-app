@@ -23,6 +23,9 @@ const PurchaseSuccessPage = () => {
                             body: JSON.stringify({ sessionId }),
                         }
                     );
+
+                    const responseData = await res.json();
+                    console.log(responseData);
                 } catch (error) {
                     console.error(error);
                 }
@@ -30,7 +33,7 @@ const PurchaseSuccessPage = () => {
         };
 
         fetchData();
-    }, [sessionId]);
+    }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">

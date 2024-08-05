@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ProductType } from "@/app/types/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 type ProductDetailClientProps = {
   product: ProductType;
@@ -12,6 +13,8 @@ type ProductDetailClientProps = {
 const ProductDetailClient = ({ product }: ProductDetailClientProps) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { data: session } = useSession();
+  const user: any = session?.user;
 
   const startCheckout = async () => {
     setLoading(true);
@@ -26,6 +29,8 @@ const ProductDetailClient = ({ product }: ProductDetailClientProps) => {
           body: JSON.stringify({
             title: product.title,
             price: product.price,
+            userId: user?.id,
+            itemId: product.id,
             id: product.id,
           }),
         }

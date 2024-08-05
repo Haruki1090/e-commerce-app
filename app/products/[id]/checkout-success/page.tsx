@@ -8,10 +8,10 @@ const PurchaseSuccessPage = () => {
           ご購入ありがとうございます！
         </h1>
         <p className="text-gray-700 mb-6">ご注文が正常に処理されました。</p>
-        <Link href="/" legacyBehavior>
-          <a className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+        <Link href="/" >
+          <p className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
             ホームに戻る
-          </a>
+          </p>
         </Link>
       </div>
     </div>

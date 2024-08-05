@@ -36,7 +36,7 @@ const Header = () => {
               ログイン
             </Link>
           )}
-          <Link href="/profile" className="flex items-center">
+          <Link href={user ? "/profile" : "/login"} className="flex items-center">
             <Image
               width={40}
               height={40}

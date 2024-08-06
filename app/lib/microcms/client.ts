@@ -23,5 +23,6 @@ export const getProductById = async (id: string) => {
       throw new Error('Product not found');
     }
   
+    // console.log('Fetched Product:', product.contents[0]);
     return product.contents[0];
   };

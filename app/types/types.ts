@@ -5,7 +5,7 @@ type ThumbnailType = {
 };
 
 type ProductType = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   thumbnail: ThumbnailType[];

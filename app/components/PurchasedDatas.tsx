@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProductType } from '../types/types';
+import Image from 'next/image';
 
 type PurchasedProductType = ProductType & { purchasedAt: string };
 
@@ -11,7 +12,7 @@ type PurchasedDatasProps = {
 const PurchasedDatas: React.FC<PurchasedDatasProps> = ({ purchasedDatas, className }) => {
   return (
     <div className={`p-4 bg-white rounded-lg shadow-md ${className}`}>
-      <img
+      <Image
         src={purchasedDatas.thumbnail[0].url}
         alt={purchasedDatas.title}
         width={80}

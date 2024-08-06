@@ -1,5 +1,6 @@
 import { getServerSession } from "next-auth";
 import Link from "next/link";
+import Image from 'next/image';
 import { nextAuthOptions } from "../lib/next-auth/options";
 import { User } from "@prisma/client";
 import { ProductType } from "../types/types";
@@ -59,7 +60,7 @@ export default async function ProfilePage() {
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">プロフィール</h1>
         <div className="mb-4">
-          <img
+        <Image
             src={user.image || "/default_icon.png"}
             alt="profile_icon"
             width={80}
